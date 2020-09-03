@@ -1,0 +1,646 @@
+<div class="uk-section-small uk-section-default header  ">
+    <div class="uk-container uk-container-large" style="text-align: center">
+        <h1>Matricula un estudiante</h1>
+    </div>
+</div>
+
+
+<div class="uk-section-small">
+    <div class="uk-container uk-container-large">
+        <div>
+            <div class="uk-card uk-card-default uk-card-body">
+                <div style="text-align: center; margin-top: -3%; background-color: #3A67BA">
+                    <b style="color: white">Informacion Inicial</b>
+                    <br>
+                </div>
+                <form class="uk-grid-small" uk-grid [formGroup]="formulario" (ngSubmit)="agregar()">
+                    <table class="uk-table uk-table-striped anchos" style="margin-top: 2%">
+                        <tbody>
+                            <tr>
+                                <th>
+                                    <label class="uk-form-label" for="form-s-text"
+                                        style="padding-right:10px;">institucion</label>
+                                </th>
+                                <th>
+                                    <div class="uk-width-1-2@s">
+                                        <select class="uk-width uk-select uk-form-width-large"
+                                            formControlName="instituciones">
+                                            <option *ngFor="let institucion of instituciones"
+                                                value="{{institucion.id}}"> {{institucion.descripcion}}</option>
+                                        </select>
+                                    </div>
+                                </th>
+                                <th>
+                                    <label class="uk-form-label" for="form-s-text"
+                                        style="padding-right:10px;">dane</label>
+                                </th>
+                                <th>
+                                    <div>
+                                        <select class="uk-width uk-select uk-form-width-large" formControlName="dane">
+                                            <option *ngFor="let dane of danes" value="{{dane.id}}"> {{dane.descripcion}}
+                                            </option>
+                                        </select>
+                                    </div>
+                                </th>
+                            </tr>
+                            <tr>
+                                <th>
+                                    <label class="uk-form-label" for="form-s-text"
+                                        style="padding-right:10px;">Curso</label>
+                                </th>
+                                <th>
+                                    <div class="uk-width-1-2@s">
+                                        <div>
+                                            <select class="uk-width uk-select uk-form-width-large"
+                                                formControlName="cursos">
+                                                <option *ngFor="let curso of cursos" value="{{curso.id}}">
+                                                    {{curso.descripcion}}</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </th>
+                                <th>
+                                    <label class="uk-form-label" for="form-s-text"
+                                        style="padding-right:10px;">sede</label>
+                                </th>
+                                <th>
+                                    <div>
+                                        <select class="uk-width uk-select uk-form-width-large" formControlName="sedes">
+                                            <option *ngFor="let sede of sedes" value="{{sede.id}}">
+                                                {{sede.descripcion}}</option>
+                                        </select>
+                                    </div>
+                                </th>
+                            </tr>
+                            <tr>
+                                <th>
+                                    <label class="uk-form-label" for="form-s-text"
+                                        style="padding-right:10px;">jornada</label>
+                                </th>
+                                <th>
+                                    <div class="uk-width-1-2@s">
+                                        <select class="uk-width uk-select uk-form-width-large"
+                                            formControlName="jornada">
+                                            <option *ngFor="let jornada of jornadas" value="{{jornada.id}}">
+                                                {{jornada.descripcion}}</option>
+                                        </select>
+                                    </div>
+                                </th>
+                                <th></th>
+                                <th></th>
+                            </tr>
+                        </tbody>
+                    </table>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="uk-container uk-container-large">
+    <div>
+        <div class="uk-card uk-card-default uk-card-body">
+            <div style="text-align: center; margin-top: -3%; background-color: #3A67BA">
+                <b style="color: white">Informacion del estudiante</b>
+                <hr>
+            </div>
+            <form class="uk-grid-small" uk-grid [formGroup]="formulario" (ngSubmit)="agregar()">
+
+                <div class="uk-width-1-2@s">
+                    <label class="uk-form-label" for="form-stacked-text">Primer Nombre</label>
+                    <input class="uk-input" type="text" formControlName="primer_nombre" />
+                </div>
+
+                <div class="uk-width-1-2@s">
+                    <label class="uk-form-label" for="form-stacked-text">Segundo Nombre</label>
+                    <input class="uk-input" type="text" formControlName="segundo_nombre" />
+                </div>
+
+                <div class="uk-width-1-2@s">
+                    <label class="uk-form-label" for="form-stacked-text">Primer Apellido</label>
+                    <input class="uk-input" type="text" formControlName="primer_apellido" />
+                </div>
+
+                <div class="uk-width-1-2@s">
+                    <label class="uk-form-label" for="form-stacked-text">Segundo Apellido</label>
+                    <input class="uk-input" type="text" formControlName="segundo_apellido" />
+                </div>
+
+
+                <div class="uk-width-1-2@s">
+                    <label class="uk-form-label" for="form-stacked-text">Tipo de documento</label>
+                    <select class="uk-width uk-select uk-form-width-large" formControlName="tipo_documento">
+                        <option *ngFor="let tipo of documentos" value="{{tipo.id}}">
+                            {{tipo.descripcion}}</option>
+                    </select>
+                </div>
+
+                <div class="uk-width-1-2@s">
+                    <label class="uk-form-label" for="form-stacked-text">Dcoumento</label>
+                    <input class="uk-input" type="text" formControlName="documento" required />
+                </div>
+
+
+                <div class="uk-width-1-3@s">
+                    <label class="uk-form-label" for="form-stacked-text">Fecha de nacimiento</label>
+                    <input class="uk-input" type="date" formControlName="fecha_nacimiento">
+                </div>
+
+                <div class="uk-width-1-3@s">
+                    <div>
+                        <label class="uk-form-label" for="form-stacked-text">Genero</label>
+                        <select class="uk-width uk-select uk-form-width-large" formControlName="tipo_genero">
+                            <option *ngFor="let genero of generos" value="{{genero.id}}">
+                                {{genero.descripcion}}</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div *ngIf="formulario.value.tipo_genero == 5 " class="uk-width-1-4@s">
+                    <label class="uk-form-label" for="form-stacked-text">Cual</label>
+                    <input class="uk-input" style="width: 50%" style="margin-top: 0%" type="text"
+                        formControlName="cual" />
+                </div>
+                <div class="uk-width-1-3@s">
+                    <label class="uk-form-label" for="form-stacked-text">Edad</label>
+                    <input class="uk-input" type="text" formControlName="edad" />
+                </div>
+
+                <div class="uk-width-1-2@s">
+                    <label class="uk-form-label" for="form-stacked-text">Municipio de nacimiento</label>
+                    <select class="uk-width uk-select uk-form-width-large" formControlName="municipio_nacimiento">
+                        <option *ngFor="let municipio of municipios" value="{{municipio.id_municipio}}">
+                            {{municipio.municipio}}</option>
+                    </select>
+                </div>
+
+                <div class="uk-width-1-2@s">
+                    <label class="uk-form-label" for="form-stacked-text">Departamento de nacimiento</label>
+                    <select class="uk-width uk-select uk-form-width-large" formControlName="departamento_nacimiento">
+                        <option *ngFor="let departamento of departamentos" value="{{departamento.id_departamento}}">
+                            {{departamento.departamento}}</option>
+                    </select>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<div class="uk-section-small">
+    <div class="uk-container uk-container-large">
+        <div>
+            <div class="uk-card uk-card-default uk-card-body">
+                <div style="text-align: center; margin-top: -3%; background-color: #3A67BA">
+                    <b style="color: white">Ubicacion del alumno</b>
+                    <br>
+                </div>
+                <form class="uk-grid-small" uk-grid [formGroup]="formulario" (ngSubmit)="agregar()">
+
+                    <div class="uk-width-1-2@s" style="width: 8%; margin-top: 1%">
+                        <label class="uk-form-label" for="form-stacked-text">Direccion</label>
+                    </div>
+
+                    <div class="uk-width-1-10@s" style="width: 9%; margin-top: 1%; margin-left: 2%">
+                        <input class="uk-input" type="text" placeholder="Dg" formControlName="calles" />
+
+                    </div>
+
+                    <div class="uk-width-1-2@s" style="width: 8%; margin-top: 1%">
+                        <input class="uk-input" type="text" placeholder="#" formControlName="numero" />
+                    </div>
+
+                    <div class="uk-width-1-10@s" style="width: 8%; margin-top: 1%">
+                        <input class="uk-input" type="text" placeholder="letra" formControlName="letra" />
+                    </div>
+
+                    <div class="uk-width-1-10@s" style="width: 9%; margin-top: 1%">
+                        <input class="uk-input" type="text" placeholder="bis" formControlName="bis" />
+                    </div>
+
+                    <div class="uk-width-1-4@s" style="width: 8%; margin-top: 1%">
+                        <input class="uk-input" type="text" placeholder="letras" formControlName="letras" />
+                    </div>
+
+                    <div class="uk-width-1-2@s" style="width: 8%; margin-top: 1%">
+                        <input class="uk-input" type="text" placeholder="S-E" formControlName="orientacion" />
+                    </div>
+
+                    <p style="margin-top: 1.5%">No.</p>
+
+                    <div class="uk-width-1-2@s" style="width: 6%; margin-top: 1%">
+                        <input class="uk-input" type="text" placeholder="#" formControlName="numeros" />
+                    </div>
+
+                    <div class="uk-width-1-10@s" style="width: 8%; margin-top: 1%">
+                        <input class="uk-input" type="text" placeholder="letras" formControlName="letras2" />
+                    </div>
+
+                    <div class="uk-width-1-2@s" style="width: 7%; margin-top: 1%">
+                        <input class="uk-input" type="text" placeholder="#" formControlName="numeros2" />
+                    </div>
+
+                    <div class="uk-width-1-2@s" style="width: 7%; margin-top: 1%">
+                        <input class="uk-input" type="text" placeholder="S-E" formControlName="orientacion2" />
+                    </div>
+
+                    <div class="uk-width-1-4@s" style="margin-right: 10%">
+                        <label class="uk-form-label" for="form-stacked-text">Correo</label>
+                    </div>
+
+                    <div class="uk-width-1-1@s" style="width: 800px; margin-left: -25%">
+                        <input class="uk-input" type="text" formControlName="correo" />
+                    </div>
+
+                    <div class="uk-width-1-4@s" style="margin-right: 10%">
+                        <label class="uk-form-label" for="form-stacked-text">Barrio</label>
+                    </div>
+
+                    <div class="uk-width-1-4@s" style="margin-left: -25%; width: 340px">
+                        <input class="uk-input" type="text" formControlName="barrio" />
+                    </div>
+
+                    <div class="uk-width-1-4@s" style="margin-left: 5%">
+                        <label class="uk-form-label" for="form-stacked-text">Localidad</label>
+                    </div>
+
+                    <div class="uk-width-1-4@s" style="margin-left: -18%; width: 340px">
+                        <input class="uk-input" type="text" formControlName="localidad" />
+                    </div>
+
+                    <div class="uk-width-1-4@s" style="margin-right: 5%">
+                        <label class="uk-form-label" for="form-stacked-text">Telefono</label>
+                    </div>
+
+                    <div class="uk-width-1-4@s" style="margin-left: -20%; width: 340px">
+                        <input class="uk-input" type="text" formControlName="telefono" />
+                    </div>
+
+                    <div class="uk-width-1-4@s" style="margin-left: 5%">
+                        <label class="uk-form-label" for="form-stacked-text">Estrato</label>
+                    </div>
+
+                    <div class="uk-width-1-4@s" style="margin-left: -18%; width: 340px">
+                        <input class="uk-input" type="text" formControlName="estrato" />
+                    </div>
+
+                    <div class="uk-width-1-4@s" style="margin-right: 10%">
+                        <label class="uk-form-label" for="form-stacked-text">nivel del sisben</label>
+                    </div>
+
+                    <div class="uk-width-1-4@s" style="margin-left: -25%; width: 340px">
+                        <input class="uk-input" type="text" formControlName="nivel_sisben" />
+                    </div>
+
+                    <div class="uk-width-1-4@s">
+                        <label class="uk-form-label" for="form-stacked-text">puntaje del sisben</label>
+                    </div>
+
+                    <div class="uk-width-1-4@s" style="margin-left: -13%; width: 340px">
+                        <input class="uk-input" type="text" formControlName="puntaje_sisben" />
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="uk-container uk-container-large">
+    <div>
+        <div class="uk-card uk-card-default uk-card-body">
+            <div style="text-align: center; margin-top: -3%; background-color: #3A67BA">
+                <b style="color: white">Historia academica</b>
+                <hr>
+            </div>
+            <form class="uk-grid-small" uk-grid [formGroup]="formulario" (ngSubmit)="agregar()">
+                <table class="uk-table uk-table-striped anchos">
+                    <tbody>
+                        <tr>
+                            <th>Año</th>
+                            <th>Grado</th>
+                            <th>institucion</th>
+                            <th>Distrital \ Privado</th>
+                        </tr>
+                        <tr>
+                            <th>
+                                <div class="uk-width-1-1@s" style="margin-left: -10%">
+                                    <input class="uk-input" type="text" formControlName="anio" />
+                                </div>
+                            </th>
+                            <th>
+                                <div class="uk-width-1-1@s" style="margin-left: -10%">
+                                    <input class="uk-input" type="text" formControlName="grado" />
+                                </div>
+                            </th>
+                            <th>
+                                <div class="uk-width-1-1@s" style="margin-left: -10%">
+                                    <input class="uk-input" type="text" formControlName="institucion" />
+                                </div>
+                            </th>
+                            <th>
+                                <div>
+                                    <select class="uk-width uk-select uk-form-width-large"
+                                        formControlName="tipo_colegio">
+                                        <option *ngFor="let colegio of colegios" value="{{colegio.id}}">
+                                            {{colegio.descripcion}}</option>
+                                    </select>
+                                </div>
+                            </th>
+                        </tr>
+
+                        <tr>
+                            <th>
+                                <div class="uk-width-1-1@s" style="margin-left: -10%">
+                                    <input class="uk-input" type="text" formControlName="anio2" />
+                                </div>
+                            </th>
+                            <th>
+                                <div class="uk-width-1-1@s" style="margin-left: -10%">
+                                    <input class="uk-input" type="text" formControlName="grado2" />
+                                </div>
+                            </th>
+                            <th>
+                                <div class="uk-width-1-1@s" style="margin-left: -10%">
+                                    <input class="uk-input" type="text" formControlName="institucion2" />
+                                </div>
+                            </th>
+                            <th>
+                                <div>
+                                    <select class="uk-width uk-select uk-form-width-large"
+                                        formControlName="tipo_colegio2">
+                                        <option *ngFor="let colegio of colegios" value="{{colegio.id}}">
+                                            {{colegio.descripcion}}</option>
+                                    </select>
+                                </div>
+                            </th>
+                        </tr>
+                    </tbody>
+                </table>
+            </form>
+        </div>
+    </div>
+</div>
+
+<div class="uk-section-small">
+    <div class="uk-container uk-container-large">
+        <div>
+            <div class="uk-card uk-card-default uk-card-body">
+                <div style="text-align: center; margin-top: -3%; background-color: #3A67BA">
+                    <b style="color: white">Situacion Academica</b>
+                    <br>
+                </div>
+                <form class="uk-grid-small" uk-grid [formGroup]="formulario" (ngSubmit)="agregar()">
+
+                    <div class="uk-width-1-4@s" style="margin-top: 2%">
+                        <label class="uk-form-label" for="form-stacked-text">situacion Academica</label>
+                    </div>
+                    <div>
+                        <div>
+                            <select class="uk-width uk-select uk-form-width-large"
+                                formControlName="situacion_academica">
+                                <option *ngFor="let situacion of situaciones" value="{{situacion.id}}">
+                                    {{situacion.descripcion}}</option>
+                            </select>
+                        </div>
+                    </div>
+                    <!-- int 1 -->
+                    <div *ngIf="formulario.value.situacion_academica == 1 " class="uk-width-1-2@s">
+                        <label class="uk-form-label" for="form-stacked-text">Departamento Expulsor</label>
+                        <input class="uk-input" type="text" formControlName="departamento_expulsor" />
+                    </div>
+
+                    <div *ngIf="formulario.value.situacion_academica == 1 " class="uk-width-1-2@s">
+                        <label class="uk-form-label" for="form-stacked-text">Municipio Expulsor</label>
+                        <input class="uk-input" type="text" formControlName="municipio_expulsor" />
+                    </div>
+                    <!-- int 2 -->
+                    <div *ngIf="formulario.value.situacion_academica == 2 " class="uk-width-1-2@s">
+                        <label class="uk-form-label" for="form-stacked-text">Departamento Expulsor</label>
+                        <input class="uk-input" type="text" formControlName="departamento_expulsor" />
+                    </div>
+                    <div *ngIf="formulario.value.situacion_academica == 2 " class="uk-width-1-2@s">
+                        <label class="uk-form-label" for="form-stacked-text">Municipio Expulsor</label>
+                        <input class="uk-input" type="text" formControlName="municipio_expulsor" />
+                    </div>
+                    <!-- int 3 -->
+                    <div *ngIf="formulario.value.situacion_academica == 3 " class="uk-width-1-2@s">
+                        <label class="uk-form-label" for="form-stacked-text">Departamento Expulsor</label>
+                        <input class="uk-input" type="text" formControlName="departamento_expulsor" />
+                    </div>
+                    <div *ngIf="formulario.value.situacion_academica == 3 " class="uk-width-1-2@s">
+                        <label class="uk-form-label" for="form-stacked-text">Municipio Expulsor</label>
+                        <input class="uk-input" type="text" formControlName="municipio_expulsor" />
+                    </div>
+                    <!-- int 4-->
+                    <div *ngIf="formulario.value.situacion_academica == 4 " class="uk-width-1-2@s">
+                        <label class="uk-form-label" for="form-stacked-text">Departamento Expulsor</label>
+                        <input class="uk-input" type="text" formControlName="departamento_expulsor" />
+                    </div>
+
+                    <div *ngIf="formulario.value.situacion_academica == 4 " class="uk-width-1-2@s">
+                        <label class="uk-form-label" for="form-stacked-text">Municipio Expulsor</label>
+                        <input class="uk-input" type="text" formControlName="municipio_expulsor" />
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<div class="uk-container uk-container-large">
+    <div>
+        <div class="uk-card uk-card-default uk-card-body">
+            <div style="text-align: center; margin-top: -3%; background-color: #3A67BA">
+                <b style="color: white">Lista o Capacidades Excepcionales</b>
+                <hr>
+            </div>
+            <form class="uk-grid-small" uk-grid [formGroup]="formulario" (ngSubmit)="agregar()">
+                <table class="uk-table uk-table-divider">
+                    <tbody>
+                        <tr>
+                            <td>
+                                <p>LIMITACIONES</p>
+                            </td>
+                            <td>
+                                <div>
+                                    <select class="uk-width uk-select uk-form-width-large"
+                                        formControlName="limitaciones">
+                                        <option *ngFor="let limitacion of limitaciones" value="{{limitacion.id}}">
+                                            {{limitacion.descripcion}}</option>
+                                    </select>
+                                </div>
+                            </td>
+                            <td>
+                                <p>CAPACIDADES EXCEPCIONALES</p>
+                            </td>
+                            <td>
+                                <div>
+                                    <select class="uk-width uk-select uk-form-width-large"
+                                        formControlName="capacidades">
+                                        <option *ngFor="let capacidad of capacidades" value="{{capacidad.id}}">
+                                            {{capacidad.descripcion}}</option>
+                                    </select>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </form>
+        </div>
+    </div>
+</div>
+
+<div class="uk-section-small">
+    <div class="uk-container uk-container-large">
+        <div>
+            <div class="uk-card uk-card-default uk-card-body">
+                <div style="text-align: center; margin-top: -3%; background-color: #3A67BA">
+                    <b style="color: white">Informacion de padres Y Acudiente</b>
+                    <hr>
+                </div>
+                <form class="uk-grid-small" uk-grid [formGroup]="formulario" (ngSubmit)="agregar()">
+                    <table class="uk-table uk-table-divider">
+                        <tbody>
+                            <tr>
+                                <td>Nombre de la madre</td>
+                                <td>
+                                    <div>
+                                        <input class="uk-input" type="text" formControlName="nombre_madre" />
+                                    </div>
+                                </td>
+                                <td>No Cedula</td>
+                                <td>
+                                    <div>
+                                        <input class="uk-input" type="text" formControlName="cedula_madre" />
+                                    </div>
+                                </td>
+                                <td>Telefono</td>
+                                <td>
+                                    <div>
+                                        <input class="uk-input" type="text" formControlName="telefono_madre" />
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Nombre del padre</td>
+                                <td>
+                                    <div>
+                                        <input class="uk-input" type="text" formControlName="nombre_padre" />
+                                    </div>
+                                </td>
+                                <td>No Cedula</td>
+                                <td>
+                                    <div>
+                                        <input class="uk-input" type="text" formControlName="cedula_padre" />
+                                    </div>
+                                </td>
+                                <td>Telefono</td>
+                                <td>
+                                    <div>
+                                        <input class="uk-input" type="text" formControlName="telefono_padre" />
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Nombre del acudiente</td>
+                                <td>
+                                    <div>
+                                        <input class="uk-input" type="text" formControlName="nombre_acudiente" />
+                                    </div>
+                                </td>
+                                <td>No Cedula</td>
+                                <td>
+                                    <div>
+                                        <input class="uk-input" type="text" formControlName="cedula_acudiente" />
+                                    </div>
+                                </td>
+                                <td>Telefono</td>
+                                <td>
+                                    <div>
+                                        <input class="uk-input" type="text" formControlName="telefono_acudiente" />
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td>
+                                    <div>
+                                        <input class="uk-input" type="text"  placeholder="otro telefono" formControlName="otro_telefono" />
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="uk-section-small">
+    <div class="uk-container uk-container-large">
+        <div>
+            <div class="uk-card uk-card-default uk-card-body">
+                <div style="text-align: center; margin-top: -3%; background-color:#3A67BA">
+                    <b style="color: white">Informacion de Salud</b>
+                    <hr>
+                </div>
+                <form class="uk-grid-small" uk-grid [formGroup]="formulario" (ngSubmit)="agregar()">
+                    <table class="uk-table uk-table-divider">
+                        <tbody>
+                            <tr>
+                                <td>EPS</td>
+                                <td>
+                                    <div>
+                                        <input class="uk-input" type="text" formControlName="eps" />
+                                    </div>
+                                </td>
+                                <td>ARS</td>
+                                <td>
+                                    <div>
+                                        <input class="uk-input" type="text" formControlName="ars" />
+                                    </div>
+                                </td>
+                                <td>GRUPO SANGUINEO</td>
+                                <td>
+                                    <div>
+                                        <input class="uk-input" type="text" formControlName="sangre" />
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>IPS</td>
+                                <td>
+                                    <div class="uk-width-1-1@s">
+                                        <input class="uk-input" type="text" formControlName="ips" />
+                                    </div>
+                                </td>
+                                <td>RH</td>
+                                <td>
+                                    <div class="uk-width-1-1@s">
+                                        <input class="uk-input" type="text" formControlName="rh" />
+                                    </div>
+                                </td>
+                                <td>
+                                </td>
+                                <td></td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <div class="uk-width-1-1@s" style="text-align: center">
+                        <button type="button" class="uk-button uk-button-default"
+                            routerLink="/administracion">Cancelar</button>
+                        <button type="submit" class="uk-button uk-button-primary"
+                            [disabled]="!formulario.valid">Guardar</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
